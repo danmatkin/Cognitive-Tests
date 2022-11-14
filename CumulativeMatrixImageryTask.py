@@ -3,8 +3,8 @@ import os.path
 import sys
 from tkinter import *
 from tkmacosx import *
-from PIL import Image, ImageTk
-from PIL.Image import Resampling
+# from PIL import Image, ImageTk
+# from PIL.Image import Resampling
 import glob
 import shutil
 import random
@@ -25,27 +25,30 @@ image_height  = int(window_height/2.5)
 
 root.geometry(f'{window_width}x{window_height}+{int(screen_height/1)}+0')
 
-image_list = []
-path = '/Users/Work/PycharmProjects/HereGoes/ComicsNew'
+try:
+    image_list = []
+    path = '/Users/Work/PycharmProjects/HereGoes/ComicsNew'
 
-if not os.path.exists(path):
-    os.makedirs(path)
-    for filename in glob.glob('/CMIT_Comics/*.jpg'):
-        image = Image.open(filename)
-        width_height = image.size
-        width_old = width_height[0]
-        height_old = width_height[1]
-        width_new = (image_height * width_old)/height_old
-        image_resized = image.resize((int(width_new),int(image_height)), Image.LANCZOS)
-        images = image_resized.save('{}{}{}'.format(path,'/',os.path.split(filename)[1]))
+    if not os.path.exists(path):
+        os.makedirs(path)
+        for filename in glob.glob('/CMIT_Comics/*.jpg'):
+            image = Image.open(filename)
+            width_height = image.size
+            width_old = width_height[0]
+            height_old = width_height[1]
+            width_new = (image_height * width_old)/height_old
+            image_resized = image.resize((int(width_new),int(image_height)), Image.LANCZOS)
+            images = image_resized.save('{}{}{}'.format(path,'/',os.path.split(filename)[1]))
 
-for file in sorted(glob.glob('/Users/Work/PycharmProjects/HereGoes/ComicsNew/*jpg')):
-    images = ImageTk.PhotoImage(Image.open(file))
-    image_list.append(images)
+    for file in sorted(glob.glob('/Users/Work/PycharmProjects/HereGoes/ComicsNew/*jpg')):
+        images = ImageTk.PhotoImage(Image.open(file))
+        image_list.append(images)
 
-print(image_list)
+    print(image_list)
 
-shutil.rmtree('ComicsNew')
+    shutil.rmtree('ComicsNew')
+except:
+    pass
 
 master_trial_outcomes = []
 intra_trial_outcomes = []
