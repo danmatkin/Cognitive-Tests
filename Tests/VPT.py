@@ -14,8 +14,8 @@ root = Tk()
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
-window_width = int(screen_width/2.5)
-window_height = int(screen_height/2.5)
+window_width = int(screen_width/2)
+window_height = int(screen_width/2)
 
 window_area = window_width*window_height
 

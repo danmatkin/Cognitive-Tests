@@ -1,3 +1,6 @@
+"""Basic Visual Language Fluency Index script - This supposedly measures 'visual language fluency' but actually is just
+generally a useful tool for assessing people's experience with comics."""
+
 from tkinter import *
 from tkmacosx import *
 
@@ -6,8 +9,8 @@ root = Tk()
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
-window_width = int(screen_width/2.5)
-window_height = int(screen_height/2.5)
+window_width = int(screen_width/2)
+window_height = int(screen_width/2)
 
 window_area = window_width*window_height
 

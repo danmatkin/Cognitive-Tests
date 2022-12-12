@@ -1,10 +1,10 @@
+"""Corsi Block Test basic script."""
+
 import time
 import os.path
 import sys
 from tkinter import *
 from tkmacosx import *
-from PIL import Image, ImageTk
-from PIL.Image import Resampling
 import glob
 import shutil
 import random
@@ -13,10 +13,8 @@ root = Tk()
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
-window_width = int(screen_width/2.5)
-window_height = int(screen_height/2.5)
-
-window_area = window_width*window_height
+window_width = int(screen_width/2)
+window_height = int(screen_width/2)
 
 image_height  = int(window_height/2.5)
 
@@ -42,7 +40,6 @@ class CorsiBlockTest:
             block['height']=int(window_width * 0.05)
             block['bg'] = 'red'
             root.update()
-            print(self.response_list)
         elif block['bg'] == 'red':
             self.response_list.remove(block)
             block.config(text = '')

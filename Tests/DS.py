@@ -3,8 +3,6 @@ import os.path
 import sys
 from tkinter import *
 from tkmacosx import *
-from PIL import Image, ImageTk
-from PIL.Image import Resampling
 import glob
 import shutil
 import random
@@ -13,12 +11,12 @@ root = Tk()
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
-window_width = int(screen_width/2.5)
-window_height = int(screen_height/2.5)
+window_width = int(screen_width/2)
+window_height = int(screen_width/2)
 
 window_area = window_width*window_height
 
-image_height  = int(window_height/2.5)
+image_height = int(window_height/2.5)
 
 root.geometry(f'{window_width}x{window_height}+{int(screen_height/1)}+0')
 
@@ -53,7 +51,7 @@ class DigitSpanTest:
                 self.digits.pop()
         self.digits_display = '+'.join(map(str, self.digits))
         self.label.place(relx=.5, rely=.5, anchor=CENTER)
-        for n in self.digits_display:
+        for _ in self.digits_display:
             self.label.config(text=f'{self.digits_display[self.digit_index]}')
             root.update()
             self.digit_index += 1
